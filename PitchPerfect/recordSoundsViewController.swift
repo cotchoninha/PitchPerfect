@@ -11,6 +11,8 @@ import AVFoundation
 
 class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     
+    
+    
     var audioRecorder: AVAudioRecorder!
 
     @IBOutlet weak var recordLabel: UILabel!
@@ -22,7 +24,11 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         stopRecordingButton.isEnabled = false
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        recordButton.imageView?.contentMode = .scaleAspectFit
+        stopRecordingButton.imageView?.contentMode = .scaleAspectFit
     }
+    
 
     func enableDisableButtons(isRecording: Bool){
         
@@ -75,6 +81,6 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
             let playSoundsVC = segue.destination as! PlaySoundsViewController
             let recordedAudioURL = sender as! URL
             playSoundsVC.recordedAudioURL = recordedAudioURL
+        }
     }
-}
 }
